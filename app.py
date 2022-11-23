@@ -93,6 +93,7 @@ def dectection(img, img_name):
         pred_texts = [decode_recognition(visualizer, rec) for rec in instances.recs]
         vis_output = visualizer.draw_instance_predictions(predictions=instances)
         img_output = vis_output.get_image()[:, :, ::-1]
+        img_output = cv2.cvtColor(img_output, cv2.COLOR_BGR2RGB)
         # vis_output.save(out_filename)
 
         print("Text prediction:", pred_texts)
